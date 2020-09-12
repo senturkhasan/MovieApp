@@ -1,0 +1,15 @@
+@model IEnumerable<Category>
+<div class="list-group">
+    <a href="/" class="list-group-item list-group-item-action active">Tüm kategoriler</a>
+    @foreach (var item in Model)
+        {
+            <p>yazması lazım:@ViewBag.SelectedCategory</p>
+            <p>item lazım:  @item.Id.ToString()</p>
+            
+          <a asp-action="Index" 
+             asp-controller="Home"
+             asp-route-id="@item.Id" 
+             class="list-group-item list-group-item-action @(ViewBag.SelectedCategory==item.Id.ToString()?"active":"")">
+             @item.Name</a>  
+        }  
+</div>
